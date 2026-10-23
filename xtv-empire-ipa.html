@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080c15">
+<title>XTV EMPIRE IPA</title>
+<style>
+:root{color-scheme:dark;--bg:#080c15;--panel:#101827;--panel2:#141f31;--line:#263650;--blue:#1687ff;--text:#f3f7ff;--muted:#9aacc6;--good:#4ade80;--warn:#fbbf24}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#102342 0,#080c15 48%);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{max-width:980px;margin:auto;padding:22px 16px 50px}.top{display:flex;align-items:center;gap:13px;margin:6px 0 24px}.logo{width:52px;height:52px;border-radius:15px;background:linear-gradient(145deg,#2496ff,#0647a5);display:grid;place-items:center;font-weight:900;font-size:20px;box-shadow:0 8px 30px #087eff35}.brand{font-size:21px;font-weight:850;letter-spacing:.6px}.sub{color:var(--muted);font-size:11px;letter-spacing:2px}.pill{margin-left:auto;border:1px solid #27543d;color:#8df0b0;background:#0d241b;padding:5px 9px;border-radius:99px;font-size:11px}
+.hero{border:1px solid var(--line);background:linear-gradient(130deg,#111f35dd,#0c1321f2);border-radius:22px;padding:23px;margin-bottom:16px}.eyebrow{color:#63b1ff;font-size:11px;font-weight:800;letter-spacing:2px}.hero h1{font-size:clamp(26px,6vw,42px);line-height:1.08;margin:9px 0 12px;letter-spacing:-1px}.hero p{color:var(--muted);max-width:620px;margin:0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}.card{border:1px solid var(--line);background:#0f1726e8;border-radius:17px;padding:17px;min-width:0}.card h2{font-size:16px;margin:0 0 6px}.card p,.hint{font-size:13px;color:var(--muted);margin:0 0 13px}.icon{color:#6cb7ff;font-size:22px;margin-bottom:9px}.drop{border:1.5px dashed #37618e;border-radius:15px;background:#0b1422;padding:23px 12px;text-align:center}.drop strong{display:block;margin:6px 0}.drop input{max-width:100%;font-size:13px;margin-top:12px}.btn{appearance:none;border:1px solid #2b5e98;background:linear-gradient(135deg,#1687ff,#0754c7);color:white;border-radius:11px;padding:11px 14px;font-weight:750;font-size:13px;cursor:pointer}.btn.secondary{background:#172235;border-color:#31445f}.btn:disabled{opacity:.45;cursor:not-allowed}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.field{display:block;width:100%;margin:9px 0 12px}.field span{display:block;color:#b7c6dc;font-size:12px;margin-bottom:5px}.field input{width:100%;background:#080f1b;border:1px solid #2a3a53;border-radius:10px;padding:11px;color:white;font:inherit;min-width:0}.status{margin-top:12px;border-radius:10px;background:#0a1320;border:1px solid var(--line);padding:10px 12px;color:var(--muted);font-size:12px;overflow-wrap:anywhere}.status.good{color:var(--good)}.status.warn{color:var(--warn)}.filebox{display:none;margin-top:13px;padding:12px;background:#0a1320;border:1px solid var(--line);border-radius:12px}.filetitle{font-weight:750;overflow-wrap:anywhere}.small{font-size:12px;color:var(--muted)}.sectiontitle{font-size:19px;margin:23px 0 10px}.steps{display:grid;gap:9px}.step{display:flex;gap:12px;padding:13px;border:1px solid var(--line);background:#0e1624;border-radius:13px}.num{flex:0 0 27px;height:27px;border-radius:9px;background:#12335a;color:#85c4ff;display:grid;place-items:center;font-weight:800}.step b{display:block;margin-bottom:2px}.step span{font-size:13px;color:var(--muted)}footer{border-top:1px solid var(--line);padding-top:16px;margin-top:24px;color:var(--muted);font-size:12px}.notice{font-size:12px;color:#b7c6dc;background:#171b23;border:1px solid #51452a;border-radius:12px;padding:12px;margin-top:13px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.hero{padding:19px}.wrap{padding:16px 12px 35px}.brand{font-size:18px}.pill{font-size:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo">X</div>
+    <div><div class="brand">XTV EMPIRE</div><div class="sub">IPA CONTROL CENTER</div></div>
+    <div class="pill">MVP • FREE</div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">PROJECT 01 / IOS TOOLS</div>
+    <h1>Your IPA.<br>One control center.</h1>
+    <p>A mobile-first workspace for reviewing IPA files and preparing iOS installation details. This starter version runs in your browser and does not upload your files to a server.</p>
+  </section>
+
+  <div class="grid">
+    <section class="card">
+      <div class="icon">01 / FILES</div>
+      <h2>IPA Library</h2>
+      <p>Select an IPA from your iPhone or Files app. This demo reads its name and size locally.</p>
+      <div class="drop">
+        <strong>Choose an IPA file</strong>
+        <div class="small">Your selected file stays on this page.</div>
+        <input id="ipaFile" type="file" accept=".ipa,application/octet-stream">
+      </div>
+      <div class="filebox" id="filebox">
+        <div class="filetitle" id="fileName"></div>
+        <div class="small" id="fileSize"></div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn secondary" id="clearFile">Clear selection</button>
+        </div>
+      </div>
+      <div class="status" id="fileStatus" role="status">Waiting for an IPA file.</div>
+    </section>
+
+    <section class="card">
+      <div class="icon">02 / SIGNING</div>
+      <h2>Signing readiness</h2>
+      <p>Check what a legitimate signing setup needs. This static site cannot sign an app by itself.</p>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div><b>IPA file</b><span>Choose the app package you have permission to use.</span></div></div>
+        <div class="step"><div class="num">2</div><div><b>Valid signing identity</b><span>A valid Apple-issued certificate and matching provisioning profile are required for the chosen distribution method.</span></div></div>
+        <div class="step"><div class="num">3</div><div><b>Trusted signing environment</b><span>Keep certificate private keys off public websites and GitHub Pages.</span></div></div>
+      </div>
+      <div class="status warn">Signing is not active in this MVP. No certificate or Apple ID credentials are requested.</div>
+    </section>
+
+    <section class="card">
+      <div class="icon">03 / INSTALL</div>
+      <h2>Installation manifest helper</h2>
+      <p>For eligible, already-signed apps, prepare the details used by an iOS over-the-air installation manifest. This helper does not create or host the manifest.</p>
+      <label class="field"><span>Direct HTTPS URL to the signed IPA</span><input id="ipaUrl" type="url" placeholder="https://example.com/app.ipa" autocomplete="url"></label>
+      <label class="field"><span>App bundle identifier</span><input id="bundleId" type="text" placeholder="com.example.myapp" autocapitalize="none" spellcheck="false"></label>
+      <label class="field"><span>Version</span><input id="version" type="text" placeholder="1.0.0"></label>
+      <div class="row"><button class="btn" id="makeManifest">Build manifest template</button></div>
+      <div class="status" id="manifestStatus" role="status">Enter the details above to generate a template.</div>
+      <div class="row" style="margin-top:10px"><button class="btn secondary" id="downloadManifest" disabled>Download manifest.plist</button></div>
+      <div class="small" style="margin-top:8px">The URL must be publicly reachable over HTTPS, and the app must be signed and provisioned correctly. A template alone will not make an unsigned app install.</div>
+    </section>
+
+    <section class="card">
+      <div class="icon">04 / SAFE VAULT</div>
+      <h2>Security rules</h2>
+      <p>These are the rules for the real service.</p>
+      <div class="steps">
+        <div class="step"><div class="num">✓</div><div><b>No Apple ID passwords</b><span>Never collect account passwords or two-factor codes.</span></div></div>
+        <div class="step"><div class="num">✓</div><div><b>No public private keys</b><span>Do not upload .p12 files or signing passwords to a public repository.</span></div></div>
+        <div class="step"><div class="num">✓</div><div><b>Only authorized apps</b><span>Use apps and certificates you own or are authorized to distribute.</span></div></div>
+      </div>
+    </section>
+  </div>
+
+  <h2 class="sectiontitle">Build roadmap</h2>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><div><b>Starter dashboard</b><span>Included in this file: responsive UI, local IPA selection, and a manifest template helper.</span></div></div>
+    <div class="step"><div class="num">2</div><div><b>Real IPA inspection</b><span>Add a carefully selected ZIP/Property List parser to read package metadata in the browser.</span></div></div>
+    <div class="step"><div class="num">3</div><div><b>Trusted signing service</b><span>Use a protected server or a trusted local signing tool; never put signing secrets in static website code.</span></div></div>
+    <div class="step"><div class="num">4</div><div><b>Hosted distribution</b><span>Host the signed IPA and valid manifest over HTTPS, then test installation on a compatible iPhone.</span></div></div>
+  </div>
+
+  <div class="notice"><b>Important:</b> GitHub Pages can host this interface for free, but it cannot securely sign IPA files or permanently store uploads. Apple certificate rules and iOS installation restrictions still apply.</div>
+  <footer>XTV EMPIRE IPA • Mobile-first starter • No analytics • No file upload in this demo</footer>
+</div>
+<script>
+(() => {
+  const fileInput = document.getElementById('ipaFile');
+  const filebox = document.getElementById('filebox');
+  const fileStatus = document.getElementById('fileStatus');
+  let selectedFile = null;
+  fileInput.addEventListener('change', () => {
+    selectedFile = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
+    if (!selectedFile) {
+      filebox.style.display = 'none';
+      fileStatus.textContent = 'Waiting for an IPA file.';
+      fileStatus.className = 'status';
+      return;
+    }
+    document.getElementById('fileName').textContent = selectedFile.name;
+    document.getElementById('fileSize').textContent = (selectedFile.size / (1024 * 1024)).toFixed(2) + ' MB';
+    filebox.style.display = 'block';
+    if (!selectedFile.name.toLowerCase().endsWith('.ipa')) {
+      fileStatus.textContent = 'This file does not have an .ipa extension. Choose an IPA package to continue.';
+      fileStatus.className = 'status warn';
+    } else {
+      fileStatus.textContent = 'Selected locally. This page has not uploaded or signed the file.';
+      fileStatus.className = 'status good';
+    }
+  });
+  document.getElementById('clearFile').addEventListener('click', () => {
+    fileInput.value = '';
+    selectedFile = null;
+    filebox.style.display = 'none';
+    fileStatus.textContent = 'Selection cleared.';
+    fileStatus.className = 'status';
+  });
+
+  let manifestBlobUrl = null;
+  const xmlEscape = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+  document.getElementById('makeManifest').addEventListener('click', () => {
+    const url = document.getElementById('ipaUrl').value.trim();
+    const bundle = document.getElementById('bundleId').value.trim();
+    const version = document.getElementById('version').value.trim();
+    const status = document.getElementById('manifestStatus');
+    const download = document.getElementById('downloadManifest');
+    download.disabled = true;
+    if (manifestBlobUrl) { URL.revokeObjectURL(manifestBlobUrl); manifestBlobUrl = null; }
+    let parsed;
+    try { parsed = new URL(url); } catch (_) {}
+    if (!parsed || parsed.protocol !== 'https:' || !parsed.hostname) {
+      status.textContent = 'Enter a valid direct HTTPS URL to the signed IPA.';
+      status.className = 'status warn'; return;
+    }
+    if (!/^[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)+$/.test(bundle)) {
+      status.textContent = 'Enter a bundle identifier such as com.example.myapp.';
+      status.className = 'status warn'; return;
+    }
+    if (!version || !/^[0-9A-Za-z._+-]+$/.test(version)) {
+      status.textContent = 'Enter a valid version string, for example 1.0.0.';
+      status.className = 'status warn'; return;
+    }
+    const plist = `<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0"><dict><key>items</key><array><dict><key>assets</key><array><dict><key>kind</key><string>software-package</string><key>url</key><string>${xmlEscape(url)}</string></dict></array><key>metadata</key><dict><key>bundle-identifier</key><string>${xmlEscape(bundle)}</string><key>bundle-version</key><string>${xmlEscape(version)}</string><key>kind</key><string>software</string><key>title</key><string>${xmlEscape(bundle)}</string></dict></dict></array></dict></plist>`;
+    manifestBlobUrl = URL.createObjectURL(new Blob([plist], {type:'application/xml;charset=utf-8'}));
+    download.disabled = false;
+    status.textContent = 'Template created. Host this manifest at an HTTPS URL and verify all app metadata before using it.';
+    status.className = 'status good';
+    download.onclick = () => {
+      const a = document.createElement('a');
+      a.href = manifestBlobUrl;
+      a.download = 'manifest.plist';
+      document.body.appendChild(a); a.click(); a.remove();
+    };
+  });
+})();
+</script>
+</body>
+</html>
